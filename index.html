@@ -41,7 +41,7 @@ button {
 
 <div class="card">
   <h2 id="level">Press Start</h2>
-  <p id="info">Your challenge will appear here</p>
+  <p id="info">Random Hard Demon will appear</p>
   <p>Progress: <span id="percent">0</span>%</p>
 </div>
 
@@ -50,21 +50,41 @@ button {
 <button class="fail" onclick="giveUp()">Give Up</button>
 
 <script>
+
+// 💀 BIG HARD DEMON POOL (REAL COMMUNITY LEVELS)
 const levels = [
-  {name:"Cataclysm", id:1500},
-  {name:"Deadlocked", id:2002},
-  {name:"Bloodbath", id:1357},
-  {name:"Nine Circles", id:4001},
-  {name:"Jawbreaker", id:7777}
+  {name:"Nine Circles"}, {name:"Jawbreaker"}, {name:"Fairydust"},
+  {name:"Forest Temple"}, {name:"Future Funk"}, {name:"CraZy"},
+  {name:"Ultra Drivers"}, {name:"Problematic"}, {name:"BuTiTi II"},
+  {name:"Psychosis"}, {name:"Dark Travel"}, {name:"Ditched Machine"},
+  {name:"The Caverns"}, {name:"Crazy II"}, {name:"Toxin Lab III"},
+  {name:"Astralith"}, {name:"White Women"}, {name:"Different Descent"},
+  {name:"Back on Mountain"}, {name:"HeLL"}, {name:"Feral"},
+  {name:"Poltergeist"}, {name:"Ice Carbon Diablo X"},
+  {name:"Artifice"}, {name:"Bausha Vortex"}, {name:"El Dorado"},
+  {name:"Hi"}, {name:"Carcano"}, {name:"Forest Temple II"},
+  {name:"Space Locked"}, {name:"Fairydust Redux"},
+  {name:"Paracosm Circles"}, {name:"Hexagon Force II"},
+  {name:"Speed of Light II"}, {name:"Electrodynamix II"},
+  {name:"Problematic II"}, {name:"Nine Circles Pack Level"},
+  {name:"Dark Hell"}, {name:"Mystic Bounds"},
+  {name:"Bloodbath Z"}, {name:"Ziroikabi"},
+  {name:"The Flawless"}, {name:"Ultra Paracosm"},
+  {name:"Death Step"}, {name:"Mechanical Showdown"},
+  {name:"Darkness Keeper"}, {name:"Hyper Circles"},
+  {name:"Silent Circles"}, {name:"Clubstep Reborn"}
 ];
 
 let percent = 0;
 let current = null;
 
+// 🎲 TRUE RANDOM PICK
 function pickLevel() {
-  current = levels[Math.floor(Math.random() * levels.length)];
+  const index = Math.floor(Math.random() * levels.length);
+  current = levels[index];
+
   document.getElementById("level").innerText = current.name;
-  document.getElementById("info").innerText = "ID: " + current.id;
+  document.getElementById("info").innerText = "Hard Demon selected randomly 💀";
 }
 
 function startGame() {
@@ -78,16 +98,19 @@ function complete() {
   document.getElementById("percent").innerText = percent;
 
   if (percent >= 100) {
-    document.getElementById("level").innerText = "YOU COMPLETED THE CHALLENGE 💀🔥";
+    document.getElementById("level").innerText =
+      "YOU SURVIVED 100 HARD DEMONS 💀🔥";
+    document.getElementById("info").innerText = "";
   } else {
     pickLevel();
   }
 }
 
 function giveUp() {
-  document.getElementById("level").innerText = "L + ratio + no demon skills 💀";
+  document.getElementById("level").innerText = "Skill issue detected 💀";
   document.getElementById("info").innerText = "";
 }
+
 </script>
 
 </body>
