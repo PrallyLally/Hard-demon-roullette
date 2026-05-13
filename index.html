@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hard Demon Roulette</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.card {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.good { background: #2ecc71; }
+.next { background: #3498db; }
+.fail { background: #e74c3c; }
+</style>
+</head>
+
+<body>
+
+<h1>🔥 Hard Demon Roulette</h1>
+
+<div class="card">
+  <h2 id="level">Press Start</h2>
+  <p id="info">Your challenge will appear here</p>
+  <p>Progress: <span id="percent">0</span>%</p>
+</div>
+
+<button class="next" onclick="startGame()">Start / Next Level</button>
+<button class="good" onclick="complete()">+1% Complete</button>
+<button class="fail" onclick="giveUp()">Give Up</button>
+
+<script>
+const levels = [
+  {name:"Cataclysm", id:1500},
+  {name:"Deadlocked", id:2002},
+  {name:"Bloodbath", id:1357},
+  {name:"Nine Circles", id:4001},
+  {name:"Jawbreaker", id:7777}
+];
+
+let percent = 0;
+let current = null;
+
+function pickLevel() {
+  current = levels[Math.floor(Math.random() * levels.length)];
+  document.getElementById("level").innerText = current.name;
+  document.getElementById("info").innerText = "ID: " + current.id;
+}
+
+function startGame() {
+  pickLevel();
+}
+
+function complete() {
+  if (!current) return;
+
+  percent++;
+  document.getElementById("percent").innerText = percent;
+
+  if (percent >= 100) {
+    document.getElementById("level").innerText = "YOU COMPLETED THE CHALLENGE 💀🔥";
+  } else {
+    pickLevel();
+  }
+}
+
+function giveUp() {
+  document.getElementById("level").innerText = "L + ratio + no demon skills 💀";
+  document.getElementById("info").innerText = "";
+}
+</script>
+
+</body>
+</html>
